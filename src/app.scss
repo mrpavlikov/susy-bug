@@ -1,0 +1,66 @@
+@import 'susy';
+
+$columns: 12;
+$gutter-width: 22px;
+$column-width: 90px;
+
+$susy: (
+        math: fluid,
+        container: 100%,
+        container-position: center,
+        columns: $columns,
+        gutters: $gutter-width/$column-width,
+        column-width: $column-width,
+        gutter-position: inside-static,
+        global-box-sizing: border-box
+);
+
+$susy-desktop: (auto);
+
+$breakpoint-default-media: 'all';
+$breakpoint-default-feature: 'min-width';
+$breakpoint-default-pair: 'width';
+$breakpoint-to-ems: false;
+
+$mobile: 640px;
+$tablet: 1024px;
+$laptop: 1440px;
+$desktop: 1920px;
+
+$mobile-only: 0 $mobile;
+$tablet-only: $mobile+1 $tablet;
+$laptop-only: $tablet+1 $laptop;
+$desktop-only: $laptop+1 $desktop;
+
+@debug before susy-breakpoint() call;
+@debug mobile $mobile;
+@debug tablet-only $tablet-only;
+
+.some-block {
+    display: block;
+
+    @include susy-breakpoint($mobile, $susy-desktop) {
+        display: inline-block;
+    }
+
+    @include susy-breakpoint($tablet-only, $susy-desktop) {
+        display: none;
+    }
+}
+
+@debug after susy-breakpoint() call;
+@debug mobile $mobile;
+@debug tablet-only $tablet-only;
+
+
+.another-block {
+    display: block;
+
+    @include susy-breakpoint($mobile, $susy-desktop) {
+        display: inline-block;
+    }
+
+    @include susy-breakpoint($tablet-only, $susy-desktop) {
+        display: none;
+    }
+}

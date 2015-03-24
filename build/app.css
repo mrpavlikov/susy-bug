@@ -1,0 +1,17 @@
+.some-block {
+  display: block; }
+  @media (min-width: 640px) {
+    .some-block {
+      display: inline-block; } }
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .some-block {
+      display: none; } }
+
+.another-block {
+  display: block; }
+  @media (min-width: 640px) {
+    .another-block {
+      display: inline-block; } }
+  @media  {
+    .another-block {
+      display: none; } }
